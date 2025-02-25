@@ -1,4 +1,5 @@
 import { Navigation } from "./navigation";
+import { MobileNav } from "./mobile-nav";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Building2 } from "lucide-react";
@@ -17,7 +18,15 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         </ScrollArea>
       </div>
       <main className="flex-1 min-h-screen bg-background">
-        <div className="h-full p-8">{children}</div>
+        <div className="flex h-16 items-center px-6 border-b">
+          <MobileNav />
+          <div className="lg:hidden ml-2">
+            <Building2 className="h-6 w-6 text-primary mr-2" />
+          </div>
+        </div>
+        <div className="p-8">
+          {children}
+        </div>
       </main>
     </div>
   );
