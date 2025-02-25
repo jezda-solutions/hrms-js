@@ -18,12 +18,15 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         </ScrollArea>
       </div>
       <main className="flex-1 min-h-screen bg-background">
-        <div className="flex h-16 items-center px-6 border-b">
+        <header className="flex h-16 items-center gap-4 border-b px-6">
           <MobileNav />
-          <div className="lg:hidden ml-2">
-            <Building2 className="h-6 w-6 text-primary mr-2" />
+          <div className="flex-1 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Building2 className="h-6 w-6 text-primary lg:hidden" />
+              <span className="font-semibold lg:hidden">HR Management</span>
+            </div>
           </div>
-        </div>
+        </header>
         <div className="p-8">
           {children}
         </div>
