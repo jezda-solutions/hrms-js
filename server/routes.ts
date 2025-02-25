@@ -39,6 +39,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.status(201).json(employee);
   });
 
+  // Add this route after the employee routes
+  app.get("/api/users", async (req, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+    // Get all users except the current user
+    const users = await storage.getUsers();
+    res.json(users.filter(user => user.id !== req.user?.id));
+  });
+
   // Leave routes
   app.get("/api/leaves", async (req, res) => {
     if (!req.isAuthenticated()) return res.sendStatus(401);
