@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, Users, Building2, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function MobileNav() {
+export function MainNav() {
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
 
@@ -54,7 +54,7 @@ export function MobileNav() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="lg:hidden hover:bg-gray-100"
+          className="hover:bg-gray-100"
           aria-label="Toggle Menu"
         >
           <Menu className="h-6 w-6" />
